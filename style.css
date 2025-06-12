@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;     /* Optional: Center content vertically */
+}
+
+h1 {
+    font-family: "Kanit", sans-serif;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 25px;
+}
+
+h1 span{
+    font-weight: 300;
+    font-size: 24px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border: 1px solid lightgray;
+    font-weight: bold;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+}
+
+td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(226, 226, 226);
+    text-align: center;
+    font-size: 17px;
+    color: #333;
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Alternância de cores para linhas pares */
+/*.row-1, .row-3, .row-5, .row-7, .row-9,
+.row-11, .row-13, .row-15, .row-17, .row-19,
+.row-21, .row-23, .row-25, .row-27, .row-29 {
+    background-color: #e8e8e8;
+}*/
+
+#cssInput {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 25%;
+    height: 575px;
+    margin: 0 15px 0 15px;
+    font-size: 18px;
+}
+
+#cores{
+    margin-top: 10px;;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;     /* Optional: Center content vertically */
+}
+
+.cores-item, .titulo-cores{
+    font-size: 20px;
+    margin: 2px;
+    padding: 5px;
+}
+
+
+.formador{
+    /* background-color: yellowgreen; */
+}
+
+.dados{
+    /* background-color: blueviolet; */
+}
+
+.gráficos{
+    /* background-color: aqua; */
+}
+
+.código{
+    /* background-color: red; */
+}
+
+.implementação{
+    /* background-color: blanchedalmond; */
+}
+
+.estilo{
+    /* background-color: orange; */
+}
+
+.marcação{
+    /* background-color: lightsalmon; */
+}
+
+.linguagem{
+    /* background-color: violet; */
+}
+
+.javascript{
+    /* background-color: lightcoral; */
+}
+
+.json{
+    /* background-color: tomato; */
+}
+
+.repositório{
+    /* background-color: aquamarine; */
+}
+
+.web{
+    /* background-color: greenyellow; */
+}
+
+.análise{
+    /* background-color: burlywood; */
+}
+
+.navegador{
+    /* background-color: palevioletred; */
+}
+
+.cientista{
+    /* background-color: gainsboro; */
+}
+
+.projeto{
+    /* background-color: pink; */
+}
+
+.dinâmico{
+    /* background-color: pink; */
+}
+
+.inspecionar{
+    /* background-color: peru; */
+}
+
+.estudante{
+    /* background-color: lightgrey; */
+}
+
+.plano{
+    /* background-color: gold; */
+}
+
+.editor{
+    /* background-color: khaki; */
+}
+
+.digital{
+    /* background-color: lightskyblue; */
+}
+
+.escola{
+    /* background-color: deepskyblue; */
+}
+
+.memória{
+    /* background-color: greenyellow; */
+}
+
+.cartão{
+    /* background-color: yellow; */
+}
+
+.estudo{
+    /* background-color: tomato; */
+}
+
+.trilha{
+    /* background-color: khaki; */
+} 
+
+.aprendizagem{
+    /* background-color: lightgrey; */
+}
+
+.pensamento{
+    /* background-color: orange; */
+}
+
+.problema{
+    /* background-color: lightsalmon; */
+}
+
+.página{
+    /* background-color: orange; */
+}
+
+.js{
+    /* background-color: blueviolet; */
+}
+
+.html{
+    /* background-color: yellowgreen; */
+}
+
+.css{
+    /* background-color: gold; */
+}
+
+.arquivo{
+    /* background-color: greenyellow; */
+}

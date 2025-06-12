@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça-Palavras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        
+    <h1>CAÇA-PALAVRAS <span>| Cada palavra secreta é também o valor de sua <i>class</i>; utilize-a para revelá-la com código CSS no campo abaixo.</span></h1>
+    <div>
+    <table>
+        <tbody>
+            <script>
+                const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÇ";
+
+                // Mapa com as palavras, suas posições iniciais e direções
+                const wordMap = {
+                    'CURSISTA': { start: [10, 12], direction: 'horizontal' },
+                    'FORMADOR': { start: [8, 14], direction: 'vertical' },
+                    'DADOS': { start: [15, 30], direction: 'vertical' },
+                    'GRÁFICOS': { start: [6, 22], direction: 'diagonal' },
+                    'CÓDIGO': { start: [18, 25], direction: 'horizontal' },
+                    'IMPLEMENTAÇÃO': { start: [1, 3], direction: 'horizontal' },
+                    'ESTILO': { start: [4, 10], direction: 'horizontal' },
+                    'MARCAÇÃO': { start: [15, 1], direction: 'horizontal' },
+                    'LINGUAGEM': { start: [9, 7], direction: 'diagonal' },
+                    'JAVASCRIPT': { start: [18, 2], direction: 'horizontal' },
+                    'JSON': { start: [2, 26], direction: 'horizontal' },
+                    'REPOSITÓRIO': { start: [5, 8], direction: 'vertical' },
+                    'WEB': { start: [3, 21], direction: 'horizontal' },
+                    'ANÁLISE': { start: [15, 20], direction: 'horizontal' },
+                    'NAVEGADOR': { start: [1, 10], direction: 'vertical' },
+                    'CIENTISTA': { start: [4, 2], direction: 'vertical' },
+                    'PROJETO': { start: [7, 22], direction: 'horizontal' },
+                    'DINÂMICO': { start: [13, 21], direction: 'vertical' },
+                    'INSPECIONAR': { start: [1, 19], direction: 'vertical' },
+                    'ESTUDANTE': { start: [5, 19], direction: 'horizontal' },
+                    'PLANO': { start: [16, 3], direction: 'diagonal' },
+                    'EDITOR': { start: [20, 17], direction: 'horizontal' },
+                    'DIGITAL': { start: [1, 1], direction: 'diagonal' },
+                    'ESCOLA': { start: [9, 17], direction: 'vertical' },
+                    'MEMÓRIA': { start: [1, 17], direction: 'vertical' },
+                    'CARTÃO': { start: [15, 10], direction: 'diagonal' },
+                    'ESTUDO': { start: [10, 1], direction: 'horizontal' },
+                    'TRILHA': { start: [7, 12], direction: 'horizontal' },
+                    'APRENDIZAGEM': { start: [1, 30], direction: 'vertical' },
+                    'PENSAMENTO': { start: [7, 20], direction: 'diagonal' },
+                    'PÁGINA': { start: [1, 21], direction: 'horizontal' },
+                    'PROBLEMA': { start: [12, 16], direction: 'vertical' },
+                    'JS': { start: [18, 18], direction: 'horizontal' },
+                    'HTML': { start: [11, 3], direction: 'diagonal' },
+                    'CSS': { start: [17, 23], direction: 'vertical' },
+                    'ARQUIVO': { start: [20, 1], direction: 'horizontal' },
+                };
+                
+                for(let i = 1; i <= 20; i++) {
+                    document.write('<tr>');
+                    for(let j = 1; j <= 30; j++) {
+                        const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+                        document.write(`<td class="row-${i} col-${j}">${randomLetter}</td>`);
+                    }
+                    document.write('</tr>');
+                }
+
+                // Função para inserir palavras na tabela
+                function insertWordsInTable() {
+                // Percorre o wordMap
+                for (const word in wordMap) {
+                    const { start, direction } = wordMap[word];
+                    let [row, col] = start; // Posição inicial
+                    row++;
+
+                    // Adiciona a classe correspondente à palavra
+                    for (let i = 0; i < word.length; i++) {
+                        let cell;
+                        if (direction === 'horizontal') {
+                            cell = document.querySelector(`tr:nth-child(${row}) td:nth-child(${col + i})`);
+                        } else if (direction === 'vertical') {
+                            cell = document.querySelector(`tr:nth-child(${row + i}) td:nth-child(${col})`);
+                        } else if (direction === 'diagonal') {
+                            cell = document.querySelector(`tr:nth-child(${row + i}) td:nth-child(${col + i})`);
+                        }
+
+                        // Verifica se a célula existe antes de adicionar a classe
+                        if (cell) {
+                            cell.classList.add(word.toLowerCase()); // Adiciona a palavra como classe
+                            cell.textContent = word[i]; // Adiciona a letra
+                        }
+                    }
+                }
+                }
+
+                // Chama a função para inserir as palavras
+                insertWordsInTable();
+            </script>
+        </tbody>
+    </table>
+    </div>
+<textarea id="cssInput" rows="10" cols="50" placeholder="">
+/*Exemplo*/
+.cursista{
+    background-color: yellow;
+}
+</textarea>
+    </main>
+    <section id="cores">
+        <h2 class="titulo-cores">Cores para seu background-color: </h2>
+        <div id="yellowgreen" class="cores-item">yellowgreen</div>
+        <div id="aqua" class="cores-item">aqua</div>
+        <div id="blanchedalmond" class="cores-item">blanchedalmond</div>
+        <div id="orange" class="cores-item">orange</div>
+        <div id="lightsalmon" class="cores-item">lightsalmon</div>
+        <div id="violet" class="cores-item">violet</div>
+        <div id="lightcoral" class="cores-item">lightcoral</div>
+        <div id="tomato" class="cores-item">tomato</div>
+        <div id="aquamarine" class="cores-item">aquamarine</div>
+        <div id="greenyellow" class="cores-item">greenyellow</div>
+        <div id="burlywood" class="cores-item">burlywood</div>
+        <div id="palevioletred" class="cores-item">palevioletred</div>
+        <div id="gainsboro" class="cores-item">gainsboro</div>
+        <div id="pink" class="cores-item">pink</div>
+        <div id="peru" class="cores-item">peru</div>
+        <div id="lightgrey" class="cores-item">lightgrey</div>
+        <div id="gold" class="cores-item">gold</div>
+        <div id="khaki" class="cores-item">khaki</div>
+        <div id="lightskyblue" class="cores-item">lightskyblue</div>
+        <div id="deepskyblue" class="cores-item">deepskyblue</div>
+        <div id="blueviolet" class="cores-item">blueviolet</div>
+    </section>
+    <script>
+        const cssInput = document.getElementById('cssInput');
+        const preview = document.getElementById('preview');
+
+        const style = document.createElement('style');
+        style.textContent = cssInput.value;
+        document.head.appendChild(style);
+
+        cssInput.addEventListener('input', () => {            
+            style.textContent = cssInput.value;
+            document.head.appendChild(style);
+        });
+
+        // Seleciona todas as divs com a classe cores-item
+        const coresDivs = document.querySelectorAll('.cores-item');
+
+        // Itera sobre cada div
+        coresDivs.forEach(div => {
+        // Define a cor de fundo da div com base no seu ID
+        div.style.backgroundColor = div.id;
+        });
+    </script>
+    <!-- <div style="display: flex;"> -->
+    <audio id="minhaMusica" controls>
+        <source src="musica_de_fundo.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento audio.
+    </audio>
+<!-- 
+    <br> -->
+    <!-- <label for="volume">Defina o volume:</label>
+    <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5"> -->
+    <!-- </div> -->
+    <script>
+        const audio = document.getElementById('minhaMusica');
+        const volumeControl = document.getElementById('volume');
+
+        // Define o volume inicial
+        audio.volume = volumeControl.value;
+
+        // Adiciona um evento para atualizar o volume quando o controle é alterado
+        volumeControl.addEventListener('input', (event) => {
+            audio.volume = event.target.value;
+        });
+    </script>
+</body>
+</html>

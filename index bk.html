@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça-Palavras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <h1>Caça-Palavras</h1>
+    <table>
+        <tbody>
+            <script>
+                const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+                // Mapa com as palavras, suas posições iniciais e direções
+                const wordMap = {
+                    'CURSISTA': { start: [10, 12], direction: 'horizontal' },
+                    'FORMADOR': { start: [8, 14], direction: 'vertical' },
+                    'DADOS': { start: [15, 30], direction: 'vertical' },
+                    'GRÁFICOS': { start: [6, 22], direction: 'diagonal' },
+                    'CÓDIGO': { start: [18, 25], direction: 'horizontal' },
+                    'IMPLEMENTAÇÃO': { start: [1, 3], direction: 'horizontal' },
+                    'ESTILO': { start: [4, 10], direction: 'horizontal' },
+                    'MARCAÇÃO': { start: [14, 1], direction: 'horizontal' },
+                    'LINGUAGEM': { start: [9, 7], direction: 'diagonal' },
+                    'JAVASCRIPT': { start: [18, 2], direction: 'horizontal' },
+                    'JSON': { start: [2, 26], direction: 'horizontal' },
+                    'REPOSITÓRIO': { start: [5, 8], direction: 'vertical' },
+                    'WEB': { start: [3, 20], direction: 'horizontal' },
+                    'ANÁLISE': { start: [15, 20], direction: 'horizontal' },
+                    'NAVEGADOR': { start: [1, 10], direction: 'vertical' },
+                    'CIENTISTA': { start: [4, 2], direction: 'vertical' },
+                    'PROJETO': { start: [7, 22], direction: 'horizontal' },
+                    'DINÂMICO': { start: [13, 21], direction: 'vertical' },
+                    'INSPECIONAR': { start: [1, 19], direction: 'vertical' },
+                    'ESTUDANTE': { start: [5, 19], direction: 'horizontal' },
+                    'PLANO': { start: [16, 3], direction: 'diagonal' },
+                    'EDITOR': { start: [20, 17], direction: 'horizontal' },
+                    'DIGITAL': { start: [1, 1], direction: 'diagonal' },
+                    'ESCOLA': { start: [9, 17], direction: 'vertical' }
+                };
+
+                // Função para obter a letra de uma palavra com base em sua posição e direção
+                function getWordLetter(word, i, j) {
+                    const wordInfo = wordMap[word];
+                    const [startRow, startCol] = wordInfo.start;
+                    const direction = wordInfo.direction;
+                    const wordLength = word.length;
+
+                    // Determina a letra baseada na posição (i, j) e na direção da palavra
+                    if (direction === 'horizontal') {
+                        if (i === startRow && j >= startCol && j < startCol + wordLength) {
+                            return word[j - startCol];
+                        }
+                    } else if (direction === 'vertical') {
+                        if (j === startCol && i >= startRow && i < startRow + wordLength) {
+                            return word[i - startRow];
+                        }
+                    } else if (direction === 'diagonal') {
+                        if (i >= startRow && j >= startCol && i - startRow === j - startCol && i - startRow < wordLength) {
+                            return word[i - startRow];
+                        }
+                    }
+                    return null;
+                }
+
+                // Função que retorna a classe da palavra se a célula pertence a ela
+                function getWordClass(i, j) {
+                    for (const word of Object.keys(wordMap)) {
+                        if (getWordLetter(word, i, j)) {
+                            return word.toLowerCase(); // Adiciona a palavra como classe
+                        }
+                    }
+                    return null;
+                }
+
+                // Gera a tabela com 20 linhas e 30 colunas
+                for (let i = 1; i <= 20; i++) {
+                    document.write('<tr>');
+                    for (let j = 1; j <= 30; j++) {
+                        let wordLetter = null;
+                        let wordClass = null;
+
+                        // Percorre todas as palavras para verificar se há uma letra na célula atual
+                        for (const word of Object.keys(wordMap)) {
+                            const letter = getWordLetter(word, i, j);
+                            if (letter) {
+                                wordLetter = letter;
+                                wordClass = word.toLowerCase();
+                                break;
+                            }
+                        }
+
+                        if (wordLetter) {
+                            document.write(`<td class="row-${i} col-${j} ${wordClass}">${wordLetter}</td>`);
+                        } else {
+                            // Gera uma letra aleatória para o restante das células
+                            const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+                            document.write(`<td class="row-${i} col-${j}">${randomLetter}</td>`);
+                        }
+                    }
+                    document.write('</tr>');
+                }
+            </script>
+        </tbody>
+    </table>
+</div>
+<textarea id="cssInput" rows="10" cols="50" placeholder="">
+/*Revele as palavras com código CSS. Exemplo:*/
+.formador{
+    background-color: yellowgreen;
+}
+</textarea>
+
+
+    <script>
+        const cssInput = document.getElementById('cssInput');
+        const preview = document.getElementById('preview');
+
+        const style = document.createElement('style');
+        style.textContent = cssInput.value;
+        document.head.appendChild(style);
+
+        cssInput.addEventListener('input', () => {            
+            style.textContent = cssInput.value;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

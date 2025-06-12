@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça palavras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Caça-Palavras | Marque a palavra encontrada com um bloco de estilo CSS  Exemplo:</h1>
+    <table>
+        <thead>
+            <tr>
+                <!--<th></th> --> <!-- Célula vazia para o canto superior esquerdo -->
+                <!-- Geração dos rótulos das colunas -->
+                <script>
+                    for (let col = 1; col <= 30; col++) {
+                        //document.write(`<th>${col}</th>`);
+                    }
+                </script>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Geração das linhas e colunas -->
+            <script>
+                const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                for(let i = 1; i <= 20; i++) {
+                    document.write('<tr>');
+                    // Rótulo da linha
+                    //document.write(`<th>${i}</th>`);
+                    // Gera as 30 colunas em cada linha
+                    for(let j = 1; j <= 30; j++) {
+                        const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+                        //document.write(`<td class="row-${i} col-${j}">${randomLetter}</td>`);
+                        document.write(`<td class="row-${i} col-${j}">${randomLetter}</td>`);
+                    }
+                    document.write('</tr>');
+                }
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>
